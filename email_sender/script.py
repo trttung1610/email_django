@@ -110,7 +110,7 @@ def send_email(server, sender_email, receiver_email, subject, email_content):
     """
 
     # Attach the logo image
-    logo_path = "./email_sender/AIConsultantBlackSmall.png"
+    logo_path = "./static/img/AIConsultantBlackSmall.png"
     with open(logo_path, "rb") as logo_file:
         logo_image = MIMEImage(logo_file.read())
         logo_image.add_header("Content-ID", "<logo_image>")

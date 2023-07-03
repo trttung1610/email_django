@@ -11,9 +11,19 @@ body {
     padding: 20px;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 50px;
+    margin-right: 10px;
+}
+
 h1 {
     color: #333;
-    text-align: center;
 }
 
 h3 {
@@ -29,4 +39,16 @@ ul {
 
 li {
     margin-bottom: 5px;
+}
+
+.success {
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.error {
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
 }
