@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Result</title>
+</head>
+<body>
+    <h1>Email Result</h1>
+    {% if result.status == "success" %}
+        <h3>Emails sent successfully to:</h3>
+        <ul>
+            {% for email in result.successful_emails %}
+                <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>Error: {{ result.message }}</h3>
+    {% endif %}
+</body>
+</html>
