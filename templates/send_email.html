@@ -6,7 +6,11 @@
 
 </head>
 <body>
-    <h1>Send Email</h1>
+    <div class="container">
+        <div class="header">
+            <img src="static/img/AIConsultantBlackSmall.png" alt="Logo">
+            <h1>Send Email</h1>
+        </div>
     <form method="post" enctype="multipart/form-data" action="{% url 'send_email' %}">
         {% csrf_token %}
         <label for="sender_email">Sender Email:</label>
