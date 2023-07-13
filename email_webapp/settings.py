@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os  # for environment variable
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ug46llrm1$wt)54st&5$1)0e1w2y_$&wo=4a2zs$@6kcms270p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # set to False on production by setting this environment variable
 
 ALLOWED_HOSTS = ['*']
 
@@ -106,3 +107,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add the following security settings
+SECURE_HSTS_SECONDS = 3600  # If your entire site is served only over SSL
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Include subdomains in SSL
+SECURE_HSTS_PRELOAD = True  # Allow preload lists
+SECURE_SSL_REDIRECT = True  # No HTTP, only HTTPS
+SESSION_COOKIE_SECURE = True  # Cookies over SSL
+CSRF_COOKIE_SECURE = True  # CSRF over SSL
+
