@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-ug46llrm1$wt)54st&5$1)0e1w2y_$&wo=4a2zs$@6kcms270p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # set to False on production by setting this environment variable
 
-ALLOWED_HOSTS = ['https://email-django-app.onrender.com/']
+ALLOWED_HOSTS = ['email-django-app.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
