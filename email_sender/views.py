@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.core.files.storage import default_storage
 from .script import send_emails
+from django.views.decorators.csrf import csrf_protect
 
+@csrf_protect
 def send_email_view(request):
     if request.method == 'POST':
         sender_email = request.POST.get('sender_email')
