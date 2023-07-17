@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',  # < Whitenoise static file serving
     'django.contrib.staticfiles',
+    'waitress',
     'email_sender',
 ]
 
