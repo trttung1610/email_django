@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from email_sender import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.send_email_view , name="send_email"),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
