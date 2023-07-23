@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout</title>
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'img/AIConsultantBlackSmall.png' %}" alt="Logo">
+            <h1>Logout</h1>
+        </div>
+        <p>You have been logged out. <a href="{% url 'login' %}">Login again</a>.</p>
+    </div>
+</body>
+</html>

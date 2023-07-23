@@ -1,8 +1,41 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import default_storage
 from .script import send_emails
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
+from .models import CustomUser
+from django.contrib.auth import authenticate, login, logout
+from .forms import CustomUserCreationForm, CustomAuthenticationForm
 
+@csrf_protect
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('send_email')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+@csrf_protect
+def login_view(request):
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('send_email')
+    else:
+        form = CustomAuthenticationForm(request=request)
+    return render(request, 'login.html', {'form': form})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('login')  # Redirect to the login view after logout
+
+@login_required
 @csrf_protect
 def send_email_view(request):
     if request.method == 'POST':

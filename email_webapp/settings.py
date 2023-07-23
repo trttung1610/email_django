@@ -48,6 +48,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'email_webapp.urls'
+AUTH_USER_MODEL = 'email_sender.CustomUser'
 
 TEMPLATES = [
     {
@@ -75,10 +76,11 @@ WSGI_APPLICATION = 'email_webapp.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+LOGIN_URL = 'login'
 
 DATABASES = {
 # Database
-    'default' : dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default' : dj_database_url.parse('postgres://trttung1610:tmhZtorZQACgCQe7kzoG0aGjmBIybRuz@dpg-ciuh0glgkuvoig89mjeg-a.singapore-postgres.render.com/email_db_j2z1')
 }
 
 # Password validation

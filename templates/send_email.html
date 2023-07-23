@@ -1,29 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Send Email</title>
-    <link rel="stylesheet" href= "static/css/sender_styles.css">
-
+    <link rel="stylesheet" href="{% static 'css/sender_styles.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="static/img/AIConsultantBlackSmall.png" alt="Logo">
+            <img src="{% static 'img/AIConsultantBlackSmall.png' %}" alt="Logo">
             <h1>Send Email</h1>
         </div>
-    <form method="post" enctype="multipart/form-data" action="{% url 'send_email' %}">
-        {% csrf_token %}
-        <label for="sender_email">Sender Email:</label>
-        <input type="email" name="sender_email" required><br><br>
-        <label for="sender_password">Sender Password:</label>
-        <input type="password" name="sender_password" required><br><br>
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" required><br><br>
-        <label for="email_content">Email Content:</label>
-        <textarea name="email_content" rows="5" required></textarea><br><br>
-        <label for="recipients_file">Recipients File:</label>
-        <input type="file" name="recipients_file" required><br><br>
-        <input type="submit" value="Send Email">
-    </form>
+        <form method="post" enctype="multipart/form-data" action="{% url 'send_email' %}">
+            {% csrf_token %}
+            <label for="sender_email">Sender Email:</label>
+            <input type="email" name="sender_email" required><br><br>
+            <label for="sender_password">Sender Password:</label>
+            <input type="password" name="sender_password" required><br><br>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" required><br><br>
+            <label for="email_content">Email Content:</label>
+            <textarea name="email_content" rows="5" required></textarea><br><br>
+            <label for="recipients_file">Recipients File:</label>
+            <input type="file" name="recipients_file" required><br><br>
+            <input type="submit" value="Send Email">
+        </form>
+    </div>
 </body>
 </html>

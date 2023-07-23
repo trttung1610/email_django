@@ -1,13 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Email Result</title>
-    <link rel="stylesheet" href="static/css/result_styles.css">
+    <link rel="stylesheet" href="{% static 'css/result_styles.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="./static/img/AIConsultantBlackSmall.png" alt="Logo">
+            <img src="{% static 'img/AIConsultantBlackSmall.png' %}" alt="Logo">
             <h1>Email Result</h1>
         </div>
         {% if result.status == "success" %}
