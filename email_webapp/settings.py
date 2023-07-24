@@ -107,6 +107,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://email-django-app.onrender.com', 'https://aiconsultant.org/email-marketing-ai-powered']
+CSRF_TRUSTED_ORIGINS = ['https://email-django-app.onrender.com','https://email-sender-m5fi.onrender.com. 'https://aiconsultant.org/email-marketing-ai-powered']
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_DOMAIN = 'aiconsultant.org'
