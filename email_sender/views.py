@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.core.files.storage import default_storage
-from .script import send_emails
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser
 from django.contrib.auth import authenticate, login, logout
+from .models import CustomUser, UploadedFile  # Add the UploadedFile import
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from .script import send_emails
 
 @csrf_protect
 def register_view(request):
@@ -45,10 +44,11 @@ def send_email_view(request):
         email_content = request.POST.get('email_content')
         recipients_file = request.FILES['recipients_file']
 
-        # Save the uploaded file
-        file_path = default_storage.save('email.xlsx', recipients_file)
+        # Create a new instance of UploadedFile
+        uploaded_file = UploadedFile(uploaded_by=request.user, file=recipients_file)
+        uploaded_file.save()
 
-        recipients_file_path = default_storage.path(file_path)
+        recipients_file_path = uploaded_file.file.path
 
         # Send the emails
         result = send_emails(sender_email, sender_password, subject, email_content, recipients_file_path)

@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import CustomUser, UploadedFile
 
-# Register your models here.
+admin.site.register(CustomUser)
+
+@admin.register(UploadedFile)
+class UploadedFileAdmin(admin.ModelAdmin):
+    list_display = ('uploaded_at', 'uploaded_by', 'file')

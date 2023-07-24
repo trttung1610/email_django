@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ug46llrm1$wt)54st&5$1)0e1w2y_$&wo=4a2zs$@6kcms270p'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +80,7 @@ LOGIN_URL = 'login'
 
 DATABASES = {
 # Database
-    'default' : dj_database_url.parse('postgres://trttung1610:tmhZtorZQACgCQe7kzoG0aGjmBIybRuz@dpg-ciuh0glgkuvoig89mjeg-a.singapore-postgres.render.com/email_db_j2z1')
+    'default' : dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 # Password validation
